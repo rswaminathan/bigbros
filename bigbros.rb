@@ -4,16 +4,28 @@ require 'mime'
 require 'gmail'
 require 'base64'
 require 'yaml'
+require 'open-uri'
 
-while true do
+def internet_connection?
+  begin
+    return true if open("http://google.com")
+  rescue
+    false
+  end
+end
 
+def idle?
+  idle = `ioreg -c IOHIDSystem | perl -ane 'if (/Idle/) {$idle=(pop @F)/1000000000; print $idle; last}'`.to_f
+  idle > 60
+end
+
+def email_screenshot
   config = YAML.load_file(File.expand_path("gmail.yml"))
 
   t = Time.now.strftime("%d-%m-%y-%H-%M-%S")
   `screencapture ./#{t}.png`
 
   msg = "Random screenshot"
-
 
   gmail = Gmail.new(config["email"], Base64.decode64(config["password"]))
 
@@ -30,6 +42,9 @@ while true do
 
   #remove file
   `rm #{t}.png`
+end
 
+while true do
+  email_screenshot if internet_connection? && !idle?
   sleep(60*rand(20)+60)
 end
