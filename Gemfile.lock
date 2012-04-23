@@ -10,7 +10,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    flickraw (0.9.5)
     i18n (0.6.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -28,6 +27,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  flickraw
   mime
   ruby-gmail!
