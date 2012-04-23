@@ -4,15 +4,18 @@ require 'flickraw'
 require 'mime'
 require 'gmail'
 require 'base64'
+require 'yaml'
 
-load 'gmail.rb'
+
+config = YAML.load_file(File.expand_path("gmail.yml"))
+
 t = Time.now.strftime("%d-%m-%y-%H-%M-%S")
 `screencapture ./#{t}.png`
 
 msg = "Random screenshot"
 
 
-gmail = Gmail.new(email, Base64.decode64(password))
+gmail = Gmail.new(config["email"], Base64.decode64(config["password"]))
 
 gmail.deliver do 
   to "ida.noeman@gmail.com"
