@@ -12,7 +12,7 @@ t = Time.now.strftime("%d-%m-%y-%H-%M-%S")
 msg = "Random screenshot"
 
 
-gmail = Gmail.new("rahul@swaminathan.com", Base64.decode64(password))
+gmail = Gmail.new(email, Base64.decode64(password))
 
 gmail.deliver do 
   to "ida.noeman@gmail.com"
@@ -27,4 +27,3 @@ gmail.logout
 
 #remove file
 `rm #{t}.png`
-
