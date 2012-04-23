@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'flickraw'
 require 'mime'
 require 'gmail'
 require 'base64'
