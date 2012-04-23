@@ -6,11 +6,11 @@ require 'base64'
 require 'yaml'
 
 while true do
-
+  
   config = YAML.load_file(File.expand_path("gmail.yml"))
 
   t = Time.now.strftime("%d-%m-%y-%H-%M-%S")
-  `screencapture ./#{t}.png`
+  `screencapture -x ./#{t}.png`
 
   msg = "Random screenshot"
 
@@ -31,5 +31,8 @@ while true do
   #remove file
   `rm #{t}.png`
 
-  sleep(60*rand(20)+60)
+  sleep(60*rand(15)+60)
+  while `system_idle_time.sh`.to_i > 30 do
+    sleep(60)
+  end
 end
