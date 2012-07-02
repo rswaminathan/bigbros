@@ -1,1 +1,3 @@
 Rename settings.example.rb to settings.yml
+
+RUN "nohup ruby bigbros.rb &"
