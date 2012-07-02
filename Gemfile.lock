@@ -18,6 +18,7 @@ GEM
     mime (0.1)
     mime-types (1.18)
     polyglot (0.3.3)
+    ruby_gntp (0.3.4)
     shared-mime-info (0.1)
     treetop (1.4.10)
       polyglot
@@ -29,3 +30,4 @@ PLATFORMS
 DEPENDENCIES
   mime
   ruby-gmail!
+  ruby_gntp

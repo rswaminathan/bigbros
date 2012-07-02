@@ -1,0 +1,6 @@
+email: 'youremail@gmail.com'
+password: 'hash of password'
+to: 'personsemail@gmail.com'
+pomodoro_time: 20
+break_time: 5
+growl: true
