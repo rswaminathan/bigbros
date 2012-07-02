@@ -7,7 +7,6 @@ require 'yaml'
 require 'open-uri'
 require 'ruby_gntp'
 
-  config = YAML.load_file(File.expand_path("settings.yml"))
 
 def config
   YAML.load_file(File.expand_path("settings.yml"))
